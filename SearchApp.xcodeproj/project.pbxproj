@@ -13,6 +13,7 @@
 		BA873DE4281BF737003E560C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA873DE2281BF737003E560C /* Main.storyboard */; };
 		BA873DE6281BF738003E560C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA873DE5281BF738003E560C /* Assets.xcassets */; };
 		BA873DE9281BF738003E560C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA873DE7281BF738003E560C /* LaunchScreen.storyboard */; };
+		BA873DF1281C000C003E560C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA873DF0281C000C003E560C /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BA873DE5281BF738003E560C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA873DE8281BF738003E560C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA873DEA281BF738003E560C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA873DF0281C000C003E560C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				BA873DE5281BF738003E560C /* Assets.xcassets */,
 				BA873DE7281BF738003E560C /* LaunchScreen.storyboard */,
 				BA873DEA281BF738003E560C /* Info.plist */,
+				BA873DF0281C000C003E560C /* TableViewCell.swift */,
 			);
 			path = SearchApp;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA873DE1281BF737003E560C /* ViewController.swift in Sources */,
+				BA873DF1281C000C003E560C /* TableViewCell.swift in Sources */,
 				BA873DDD281BF737003E560C /* AppDelegate.swift in Sources */,
 				BA873DDF281BF737003E560C /* SceneDelegate.swift in Sources */,
 			);
