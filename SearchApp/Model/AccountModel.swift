@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct AccountRaw: Codable {
+    let results: [Account]
+}
+
 struct Account: Codable {
     let name: String
     let date: String
