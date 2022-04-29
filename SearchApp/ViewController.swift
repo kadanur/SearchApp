@@ -34,3 +34,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+extension ViewController {
+    func loadData(completion: @escaping (Account?) -> Void) {
+        do {
+            let data1 = Data(from: <#T##Decoder#>)
+          //  let output = try JSONDecoder().decode(Account.self, from: )
+        } catch {
+            
+        }
+    }
+}
