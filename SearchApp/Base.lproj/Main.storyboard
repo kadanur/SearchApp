@@ -22,6 +22,9 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlFunc:" destination="BYZ-38-t0r" eventType="valueChanged" id="11D-MN-0Ao"/>
+                                </connections>
                             </segmentedControl>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="HAN-5E-j0q">
                                 <rect key="frame" x="0.0" y="129" width="414" height="51"/>
@@ -104,6 +107,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="SON / KAYITLI İŞLEMLER" id="95g-U7-1Jv"/>
                     <connections>
+                        <outlet property="searchBar" destination="HAN-5E-j0q" id="2gr-Q4-Amp"/>
+                        <outlet property="segmentedControl" destination="JSL-iu-3Kq" id="W2E-9p-9Zh"/>
                         <outlet property="tableView" destination="G1P-KX-qEp" id="ouZ-ZK-Y5p"/>
                     </connections>
                 </viewController>
