@@ -10,7 +10,16 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var searchBar: UISearchBar!
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
+    
     var accounts1 = [Account]() // İlk Veri
     var accounts2 = [Account]() // İkinci Veri
     var selectedAccounts = [Account]() // Seçilen Veri
@@ -21,7 +30,11 @@ class ViewController: UIViewController {
         print("VC loaded")
         tableView.delegate = self
         tableView.dataSource = self
-        searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Ara..."
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
         loadData()
     }
     
@@ -31,16 +44,64 @@ class ViewController: UIViewController {
             case 0:
             selectedAccounts = accounts1
             filteredAccounts = selectedAccounts
+            searchController.isActive = false
             tableView.reloadData()
             case 1:
             selectedAccounts = accounts2
             filteredAccounts = selectedAccounts
+            searchController.isActive = false
             tableView.reloadData()
             default:
                 break
             }
     }
     
+    func filterContentForSearchText(_ searchText: String) {
+        filteredAccounts = selectedAccounts.filter { (account: Account) -> Bool in
+            return account.name.lowercased().contains(searchText.lowercased()) || account.iban.contains(searchText)
+        }
+      tableView.reloadData()
+    }
+
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredAccounts.count
+        }
+        
+        return selectedAccounts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as! TableViewCell
+        let account: Account
+        if isFiltering {
+            account = filteredAccounts[indexPath.row]
+        } else {
+            account = selectedAccounts[indexPath.row]
+        }
+        cell.nameLabel.text = account.name
+        cell.priceLabel.text = account.price + "₺"
+        cell.dateLabel.text = account.date
+        cell.ibanLabel.text = account.iban
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 107
+    }
+}
+
+extension ViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+}
+
+extension ViewController {
     func loadData() {
         NetworkService().fetchData(url: URL(string: "https://raw.githubusercontent.com/kadanur/SearchApp/main/SearchApp/data1.json")!) { result in
             if let result = result {
@@ -72,44 +133,4 @@ class ViewController: UIViewController {
             }
         }
     }
-}
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredAccounts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as! TableViewCell
-        cell.nameLabel.text = filteredAccounts[indexPath.row].name
-        cell.priceLabel.text = filteredAccounts[indexPath.row].price + "₺"
-        cell.dateLabel.text = filteredAccounts[indexPath.row].date
-        cell.ibanLabel.text = filteredAccounts[indexPath.row].iban
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 107
-    }
-}
-
-extension ViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-         //BUG I-İ Türkçe karakter bug
-         filteredAccounts = []
-         if searchText == ""{
-             filteredAccounts = selectedAccounts
-             print("Boşş")
-         }
-        
-        for i in selectedAccounts {
-            if i.name.uppercased().contains(searchText.uppercased()) || i.iban.contains(searchText) {
-                filteredAccounts.append(i)
-            }
-        }
-
-        self.tableView.reloadData()
-        print(searchText)
-        print(self.filteredAccounts)
-     }
 }

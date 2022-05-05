@@ -26,12 +26,8 @@
                                     <action selector="segmentedControlFunc:" destination="BYZ-38-t0r" eventType="valueChanged" id="11D-MN-0Ao"/>
                                 </connections>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="HAN-5E-j0q">
-                                <rect key="frame" x="0.0" y="129" width="414" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G1P-KX-qEp">
-                                <rect key="frame" x="0.0" y="180" width="414" height="682"/>
+                                <rect key="frame" x="0.0" y="124" width="414" height="738"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" rowHeight="107" id="Yrx-Jf-OYD" customClass="TableViewCell" customModule="SearchApp" customModuleProvider="target">
@@ -44,19 +40,19 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o2v-wL-fep" userLabel="Name and IBAN">
                                                     <rect key="frame" x="25" y="22" width="210.5" height="63.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MURAT KAAN ADANUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8L-hn-Adg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="MURAT KAAN ADANUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8L-hn-Adg">
                                                             <rect key="frame" x="0.0" y="0.0" width="210.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TR00 0000 0000 0000 0000 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlE-dj-QLb">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="TR00 0000 0000 0000 0000 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlE-dj-QLb">
                                                             <rect key="frame" x="0.0" y="24.5" width="210.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29 Nisan 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diE-5i-jRm">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="29 Nisan 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diE-5i-jRm">
                                                             <rect key="frame" x="0.0" y="46.5" width="210.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
@@ -95,19 +91,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JSL-iu-3Kq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6CE-du-s3P"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="G1P-KX-qEp" secondAttribute="bottom" id="bTL-wX-sFe"/>
-                            <constraint firstItem="HAN-5E-j0q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eZB-1D-Oxi"/>
-                            <constraint firstItem="HAN-5E-j0q" firstAttribute="top" secondItem="JSL-iu-3Kq" secondAttribute="bottom" constant="5" id="fbA-2G-VAE"/>
-                            <constraint firstItem="HAN-5E-j0q" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iO4-f4-4Fp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G1P-KX-qEp" secondAttribute="trailing" id="mMt-KU-i8X"/>
+                            <constraint firstItem="G1P-KX-qEp" firstAttribute="top" secondItem="JSL-iu-3Kq" secondAttribute="bottom" id="RK5-i7-M0X"/>
+                            <constraint firstItem="G1P-KX-qEp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zpf-Fw-dtY"/>
+                            <constraint firstItem="G1P-KX-qEp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="axp-ih-VkR"/>
                             <constraint firstItem="JSL-iu-3Kq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="oEl-7O-pI4"/>
-                            <constraint firstItem="G1P-KX-qEp" firstAttribute="top" secondItem="HAN-5E-j0q" secondAttribute="bottom" id="sZ8-Qe-Zbq"/>
-                            <constraint firstItem="G1P-KX-qEp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xSw-7f-oWG"/>
+                            <constraint firstItem="G1P-KX-qEp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rSc-Nj-L0T"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SON / KAYITLI İŞLEMLER" id="95g-U7-1Jv"/>
                     <connections>
-                        <outlet property="searchBar" destination="HAN-5E-j0q" id="2gr-Q4-Amp"/>
                         <outlet property="segmentedControl" destination="JSL-iu-3Kq" id="W2E-9p-9Zh"/>
                         <outlet property="tableView" destination="G1P-KX-qEp" id="ouZ-ZK-Y5p"/>
                     </connections>
