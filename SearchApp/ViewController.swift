@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     let searchController = UISearchController(searchResultsController: nil)
+    @IBOutlet weak var searchView: UIView!
     
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -33,7 +34,9 @@ class ViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Ara..."
-        navigationItem.searchController = searchController
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchView.backgroundColor = .white
+        searchView.addSubview(searchController.searchBar)
         definesPresentationContext = true
         loadData()
     }
