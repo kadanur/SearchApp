@@ -62,7 +62,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="jZM-hg-Jy8" userLabel="Price">
-                        <rect key="frame" x="260.5" y="11" width="48.5" height="19.5"/>
+                        <rect key="frame" x="260.5" y="16" width="48.5" height="19.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-18-ynn">
                                 <rect key="frame" x="0.0" y="0.0" width="24.5" height="19.5"/>
@@ -82,7 +82,7 @@
                 <constraints>
                     <constraint firstItem="Q76-uK-vmc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HBo-vQ-3P9"/>
                     <constraint firstItem="Q76-uK-vmc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ICy-1H-NPh"/>
-                    <constraint firstItem="jZM-hg-Jy8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="IaY-Ec-5hz"/>
+                    <constraint firstItem="jZM-hg-Jy8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="IaY-Ec-5hz"/>
                     <constraint firstItem="zqm-B1-lEL" firstAttribute="leading" secondItem="Q76-uK-vmc" secondAttribute="trailing" constant="10" id="VJh-PW-3cG"/>
                     <constraint firstAttribute="trailing" secondItem="jZM-hg-Jy8" secondAttribute="trailing" constant="11" id="hyJ-T6-NLn"/>
                     <constraint firstItem="zqm-B1-lEL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tKd-Wa-F6y"/>

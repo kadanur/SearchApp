@@ -16,44 +16,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JSL-iu-3Kq" userLabel="Segment Control">
-                                <rect key="frame" x="15" y="49" width="345" height="32"/>
-                                <segments>
-                                    <segment title="SON 50 İŞLEM"/>
-                                    <segment title="KAYITLI İŞLEMLER"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="selectedSegmentTintColor" red="0.2545360706" green="0.2818647084" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <action selector="segmentedControlFunc:" destination="BYZ-38-t0r" eventType="valueChanged" id="11D-MN-0Ao"/>
-                                </connections>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-va-arb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="91"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JSL-iu-3Kq" userLabel="Segment Control">
+                                        <rect key="frame" x="15" y="0.0" width="345" height="32"/>
+                                        <segments>
+                                            <segment title="SON 50 İŞLEM"/>
+                                            <segment title="KAYITLI İŞLEMLER"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="selectedSegmentTintColor" red="0.2545360706" green="0.2818647084" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <action selector="segmentedControlFunc:" destination="BYZ-38-t0r" eventType="valueChanged" id="11D-MN-0Ao"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYf-bD-Bnm" userLabel="Search View">
+                                        <rect key="frame" x="15" y="47" width="345" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="1tQ-kJ-bVE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JSL-iu-3Kq" firstAttribute="leading" secondItem="KGd-va-arb" secondAttribute="leading" constant="15" id="28Z-hL-zrC"/>
+                                    <constraint firstAttribute="trailing" secondItem="JSL-iu-3Kq" secondAttribute="trailing" constant="15" id="JdI-kw-1oC"/>
+                                    <constraint firstItem="PYf-bD-Bnm" firstAttribute="leading" secondItem="KGd-va-arb" secondAttribute="leading" constant="15" id="SmY-2g-G4q"/>
+                                    <constraint firstAttribute="trailing" secondItem="PYf-bD-Bnm" secondAttribute="trailing" constant="15" id="sTk-0t-Tcw"/>
+                                </constraints>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G1P-KX-qEp">
-                                <rect key="frame" x="0.0" y="136" width="375" height="531"/>
+                                <rect key="frame" x="0.0" y="171" width="375" height="496"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYf-bD-Bnm" userLabel="Search View">
-                                <rect key="frame" x="0.0" y="85" width="375" height="51"/>
-                                <color key="backgroundColor" systemColor="systemMintColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="K00-30-7ol"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PYf-bD-Bnm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4sS-zG-QPN"/>
-                            <constraint firstItem="JSL-iu-3Kq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6CE-du-s3P"/>
-                            <constraint firstItem="JSL-iu-3Kq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="7yl-pP-9pg"/>
-                            <constraint firstItem="G1P-KX-qEp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HmT-wr-iRv"/>
-                            <constraint firstItem="G1P-KX-qEp" firstAttribute="top" secondItem="PYf-bD-Bnm" secondAttribute="bottom" id="KFL-e4-5FB"/>
-                            <constraint firstItem="G1P-KX-qEp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Lqr-Fz-fBr"/>
-                            <constraint firstItem="G1P-KX-qEp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bxQ-S0-XnK"/>
-                            <constraint firstItem="PYf-bD-Bnm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iSo-Zp-jJ9"/>
-                            <constraint firstItem="PYf-bD-Bnm" firstAttribute="top" secondItem="JSL-iu-3Kq" secondAttribute="bottom" constant="5" id="lmp-t5-dCA"/>
-                            <constraint firstItem="JSL-iu-3Kq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="oEl-7O-pI4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JSL-iu-3Kq" secondAttribute="trailing" constant="15" id="wse-hI-Jnc"/>
+                            <constraint firstItem="KGd-va-arb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4wf-dB-hPW"/>
+                            <constraint firstItem="G1P-KX-qEp" firstAttribute="top" secondItem="KGd-va-arb" secondAttribute="bottom" constant="16" id="HRc-YE-OU1"/>
+                            <constraint firstItem="G1P-KX-qEp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wxi-rk-vjL"/>
+                            <constraint firstAttribute="trailing" secondItem="G1P-KX-qEp" secondAttribute="trailing" id="YNS-2H-DIW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="G1P-KX-qEp" secondAttribute="bottom" id="aYC-my-et8"/>
+                            <constraint firstItem="KGd-va-arb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="v3K-oP-gdO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KGd-va-arb" secondAttribute="trailing" id="zuu-c4-clb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SON / KAYITLI İŞLEMLER" id="95g-U7-1Jv"/>
@@ -65,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="81.696428571428569"/>
+            <point key="canvasLocation" x="928.79999999999995" y="81.409295352323838"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R6A-LD-p7D">

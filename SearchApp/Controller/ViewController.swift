@@ -109,7 +109,7 @@ extension ViewController: UISearchResultsUpdating {
 
 extension ViewController {
     func loadData() {
-        NetworkService().fetchData(url: URL(string: "https://raw.githubusercontent.com/kadanur/SearchApp/main/SearchApp/data1.json")!) { result in
+        NetworkService().fetchData(url: URL(string: "https://raw.githubusercontent.com/kadanur/SearchApp/srchcntrllr/SearchApp/data1.json")!) { result in
             if let result = result {
                 for i in result{
                     self.accounts1.append(i)
@@ -164,6 +164,8 @@ extension ViewController {
         let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
         searchController.searchBar.backgroundColor = .white
         searchController.searchBar.backgroundImage = UIImage()
+        searchController.searchBar.showsCancelButton = false
+        
 
         if let field = searchField {
             field.layer.cornerRadius = 8
@@ -175,7 +177,21 @@ extension ViewController {
             field.font = UIFont.systemFont(ofSize: 14)
             field.layer.masksToBounds = true
             field.returnKeyType = .search
+            
+            field.translatesAutoresizingMaskIntoConstraints = false
+            field.sizeToFit()
+            
+            
 
+                NSLayoutConstraint.activate([
+                    field.leadingAnchor.constraint(equalTo: searchView.leadingAnchor,constant: 0),
+                    field.topAnchor.constraint(equalTo: searchView.topAnchor,constant: 0),
+                    field.bottomAnchor.constraint(equalTo: searchView.bottomAnchor,constant: 0),
+                    field.trailingAnchor.constraint(equalTo: searchView.trailingAnchor, constant: 0),
+                    field.widthAnchor.constraint(equalTo: searchView.widthAnchor, multiplier: 1),
+                    field.heightAnchor.constraint(equalTo: searchView.heightAnchor, multiplier: 1)
+                ])
+            
             let placeholderString = NSAttributedString(string: "Kişi Ara", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: CGFloat(120/255.0), green: CGFloat(144/255.0), blue: CGFloat(156/255.0), alpha: CGFloat(1.0))])
             field.attributedPlaceholder = placeholderString
 
