@@ -8,7 +8,7 @@
 import Foundation
 
 struct NetworkService {
-    func fetchData(url: URL, completion: @escaping ([Account]?) -> Void) {
+    public static func fetchData(url: URL, completion: @escaping ([Account]?) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print("error1")

@@ -26,13 +26,20 @@
 		BA854426282473C90057D9A1 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA854424282473C90057D9A1 /* AccountCell.xib */; };
 		BA873DDD281BF737003E560C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA873DDC281BF737003E560C /* AppDelegate.swift */; };
 		BA873DDF281BF737003E560C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA873DDE281BF737003E560C /* SceneDelegate.swift */; };
-		BA873DE1281BF737003E560C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA873DE0281BF737003E560C /* ViewController.swift */; };
+		BA873DE1281BF737003E560C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA873DE0281BF737003E560C /* HomeViewController.swift */; };
 		BA873DE4281BF737003E560C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA873DE2281BF737003E560C /* Main.storyboard */; };
 		BA873DE6281BF738003E560C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA873DE5281BF738003E560C /* Assets.xcassets */; };
 		BA873DE9281BF738003E560C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA873DE7281BF738003E560C /* LaunchScreen.storyboard */; };
 		BA873DF4281C1CC9003E560C /* data1.json in Resources */ = {isa = PBXBuildFile; fileRef = BA873DF3281C1CC9003E560C /* data1.json */; };
 		BA873DF6281C1CE0003E560C /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA873DF5281C1CE0003E560C /* AccountModel.swift */; };
 		BA873DF9281C1FDA003E560C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA873DF8281C1FDA003E560C /* NetworkService.swift */; };
+		BAAF55DA28291B5300B90D8E /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF55D928291B5300B90D8E /* Notification+Extension.swift */; };
+		BAAF55DD28291B9700B90D8E /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF55DC28291B9700B90D8E /* UISearchBar+Extension.swift */; };
+		BAAF55DF28291C3800B90D8E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF55DE28291C3800B90D8E /* UIColor+Extension.swift */; };
+		BAAF55E128291D2400B90D8E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF55E028291D2400B90D8E /* HomeViewModel.swift */; };
+		BADC38DE2829392F00563EF1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC38DD2829392F00563EF1 /* SecondViewController.swift */; };
+		BADC38E028293EAE00563EF1 /* TableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC38DF28293EAE00563EF1 /* TableView+Extension.swift */; };
+		BADC38E228294FC000563EF1 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC38E128294FC000563EF1 /* MenuCell.swift */; };
 		BAF2EFCC281C24C80027AC6A /* data2.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF2EFCB281C24C80027AC6A /* data2.json */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +63,7 @@
 		BA873DD9281BF737003E560C /* SearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA873DDC281BF737003E560C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA873DDE281BF737003E560C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA873DE0281BF737003E560C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA873DE0281BF737003E560C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BA873DE3281BF737003E560C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA873DE5281BF738003E560C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA873DE8281BF738003E560C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +71,13 @@
 		BA873DF3281C1CC9003E560C /* data1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data1.json; sourceTree = "<group>"; };
 		BA873DF5281C1CE0003E560C /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		BA873DF8281C1FDA003E560C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BAAF55D928291B5300B90D8E /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		BAAF55DC28291B9700B90D8E /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
+		BAAF55DE28291C3800B90D8E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		BAAF55E028291D2400B90D8E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BADC38DD2829392F00563EF1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BADC38DF28293EAE00563EF1 /* TableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Extension.swift"; sourceTree = "<group>"; };
+		BADC38E128294FC000563EF1 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		BAF2EFCB281C24C80027AC6A /* data2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data2.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +98,7 @@
 			children = (
 				BA854423282473C90057D9A1 /* AccountCell.swift */,
 				BA854424282473C90057D9A1 /* AccountCell.xib */,
+				BADC38E128294FC000563EF1 /* MenuCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -109,7 +124,9 @@
 		BA5BEFED28254D5B001DC8A7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BA873DE0281BF737003E560C /* ViewController.swift */,
+				BA873DE0281BF737003E560C /* HomeViewController.swift */,
+				BAAF55E028291D2400B90D8E /* HomeViewModel.swift */,
+				BADC38DD2829392F00563EF1 /* SecondViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,6 +169,7 @@
 		BA873DDB281BF737003E560C /* SearchApp */ = {
 			isa = PBXGroup;
 			children = (
+				BAAF55D828291B3D00B90D8E /* Extensions */,
 				BA5BEFEB28254D07001DC8A7 /* App */,
 				BA5BEFEE282558AF001DC8A7 /* Font */,
 				BA873DF7281C1FCC003E560C /* Network */,
@@ -183,6 +201,17 @@
 				BA873DF8281C1FDA003E560C /* NetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		BAAF55D828291B3D00B90D8E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BAAF55D928291B5300B90D8E /* Notification+Extension.swift */,
+				BAAF55DC28291B9700B90D8E /* UISearchBar+Extension.swift */,
+				BAAF55DE28291C3800B90D8E /* UIColor+Extension.swift */,
+				BADC38DF28293EAE00563EF1 /* TableView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,11 +309,18 @@
 				BA873DF6281C1CE0003E560C /* AccountModel.swift in Sources */,
 				BA854425282473C90057D9A1 /* AccountCell.swift in Sources */,
 				BA295263282895FA0040629D /* CustomSearchController.swift in Sources */,
-				BA873DE1281BF737003E560C /* ViewController.swift in Sources */,
+				BADC38E028293EAE00563EF1 /* TableView+Extension.swift in Sources */,
+				BAAF55DF28291C3800B90D8E /* UIColor+Extension.swift in Sources */,
+				BA873DE1281BF737003E560C /* HomeViewController.swift in Sources */,
 				BA873DDD281BF737003E560C /* AppDelegate.swift in Sources */,
+				BADC38DE2829392F00563EF1 /* SecondViewController.swift in Sources */,
 				BA873DF9281C1FDA003E560C /* NetworkService.swift in Sources */,
+				BAAF55E128291D2400B90D8E /* HomeViewModel.swift in Sources */,
 				BA295265282896010040629D /* CustomSearchBar.swift in Sources */,
+				BADC38E228294FC000563EF1 /* MenuCell.swift in Sources */,
 				BA873DDF281BF737003E560C /* SceneDelegate.swift in Sources */,
+				BAAF55DA28291B5300B90D8E /* Notification+Extension.swift in Sources */,
+				BAAF55DD28291B9700B90D8E /* UISearchBar+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
