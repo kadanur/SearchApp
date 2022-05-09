@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA295263282895FA0040629D /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA295262282895FA0040629D /* CustomSearchController.swift */; };
+		BA295265282896010040629D /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA295264282896010040629D /* CustomSearchBar.swift */; };
 		BA5BEFFB28255978001DC8A7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA5BEFF5282558C3001DC8A7 /* OpenSans-Bold.ttf */; };
 		BA5BEFFC28255978001DC8A7 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA5BEFEF282558C3001DC8A7 /* OpenSans-BoldItalic.ttf */; };
 		BA5BEFFD28255978001DC8A7 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA5BEFF1282558C3001DC8A7 /* OpenSans-ExtraBold.ttf */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA295262282895FA0040629D /* CustomSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
+		BA295264282896010040629D /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		BA5BEFEF282558C3001DC8A7 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		BA5BEFF0282558C3001DC8A7 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		BA5BEFF1282558C3001DC8A7 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				BA873DEA281BF738003E560C /* Info.plist */,
 				BA873DF3281C1CC9003E560C /* data1.json */,
 				BAF2EFCB281C24C80027AC6A /* data2.json */,
+				BA295262282895FA0040629D /* CustomSearchController.swift */,
+				BA295264282896010040629D /* CustomSearchBar.swift */,
 			);
 			path = SearchApp;
 			sourceTree = "<group>";
@@ -265,9 +271,11 @@
 			files = (
 				BA873DF6281C1CE0003E560C /* AccountModel.swift in Sources */,
 				BA854425282473C90057D9A1 /* AccountCell.swift in Sources */,
+				BA295263282895FA0040629D /* CustomSearchController.swift in Sources */,
 				BA873DE1281BF737003E560C /* ViewController.swift in Sources */,
 				BA873DDD281BF737003E560C /* AppDelegate.swift in Sources */,
 				BA873DF9281C1FDA003E560C /* NetworkService.swift in Sources */,
+				BA295265282896010040629D /* CustomSearchBar.swift in Sources */,
 				BA873DDF281BF737003E560C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

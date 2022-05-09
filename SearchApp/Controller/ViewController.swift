@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    let searchController = UISearchController(searchResultsController: nil)
+    let searchController = CustomSearchController(searchResultsController: nil)
     @IBOutlet weak var searchView: UIView!
     
     var isSearchBarEmpty: Bool {
@@ -33,6 +33,10 @@ class ViewController: UIViewController {
         print("VC loaded")
         setup()
         setupUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        setupSearchBarSize()
     }
     
     // MARK: Segmented Control Function
@@ -98,10 +102,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Search Bar Options
 
-extension ViewController: UISearchResultsUpdating {
+extension ViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
+    }
+    
+    func setupSearchBarSize(){
+//         self.searchController.searchBar.frame.size.width = self.view.frame.size.width
+        let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        
+        if let field = searchField {
+            self.searchController.searchBar.setConstraints(field: field as! UISearchTextField, searchView: searchView)
+        }
     }
 }
 
@@ -143,14 +156,21 @@ extension ViewController {
 
     // MARK: Config for First Launch
 
-extension ViewController {
+extension ViewController: UISearchControllerDelegate {
     func setup() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AccountCell.self, forCellReuseIdentifier: "AccountCell")
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
+//        searchController.searchResultsUpdater = self
+//        searchController.searchBar.delegate = self
+//        searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchResultsUpdater = self
+                searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.autoresizingMask = .flexibleRightMargin
+                searchController.searchBar.delegate = self
+                searchController.delegate = self
+                definesPresentationContext = true
         searchView.addSubview(searchController.searchBar)
         loadData()
     }
@@ -161,47 +181,11 @@ extension ViewController {
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: CGFloat(1/255.0), green: CGFloat(132/255.0), blue: CGFloat(212/255.0), alpha: CGFloat(1.0))], for: .normal)
         
-        let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
-        searchController.searchBar.backgroundColor = .white
-        searchController.searchBar.backgroundImage = UIImage()
-        searchController.searchBar.showsCancelButton = false
         
-
+        let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        
         if let field = searchField {
-            field.layer.cornerRadius = 8
-            field.layer.borderWidth = 1
-            field.layer.borderColor = UIColor(red: CGFloat(182/255.0), green: CGFloat(198/255.0), blue: CGFloat(215/255.0), alpha: CGFloat(1.0)).cgColor
-            //sets text Color
-            field.textColor = UIColor(red: CGFloat(120/255.0), green: CGFloat(144/255.0), blue: CGFloat(156/255.0), alpha: CGFloat(1.0))
-            field.backgroundColor = .white
-            field.font = UIFont.systemFont(ofSize: 14)
-            field.layer.masksToBounds = true
-            field.returnKeyType = .search
-            
-            field.translatesAutoresizingMaskIntoConstraints = false
-            field.sizeToFit()
-            
-            
-
-                NSLayoutConstraint.activate([
-                    field.leadingAnchor.constraint(equalTo: searchView.leadingAnchor,constant: 0),
-                    field.topAnchor.constraint(equalTo: searchView.topAnchor,constant: 0),
-                    field.bottomAnchor.constraint(equalTo: searchView.bottomAnchor,constant: 0),
-                    field.trailingAnchor.constraint(equalTo: searchView.trailingAnchor, constant: 0),
-                    field.widthAnchor.constraint(equalTo: searchView.widthAnchor, multiplier: 1),
-                    field.heightAnchor.constraint(equalTo: searchView.heightAnchor, multiplier: 1)
-                ])
-            
-            let placeholderString = NSAttributedString(string: "Kişi Ara", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: CGFloat(120/255.0), green: CGFloat(144/255.0), blue: CGFloat(156/255.0), alpha: CGFloat(1.0))])
-            field.attributedPlaceholder = placeholderString
-
-            let iconView = field.leftView as! UIImageView
-            iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
-            iconView.tintColor = UIColor(red: CGFloat(1/255.0), green: CGFloat(132/255.0), blue: CGFloat(212/255.0), alpha: CGFloat(1.0))
-
-            if let backgroundview = field.subviews.first {
-                backgroundview.backgroundColor = .white
-            }
+            self.searchController.searchBar.setConstraints(field: field as! UISearchTextField, searchView: searchView)
         }
     }
 }
