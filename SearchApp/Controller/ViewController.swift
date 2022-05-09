@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -35,9 +36,9 @@ class ViewController: UIViewController {
         setupUI()
     }
     
-    override func viewDidLayoutSubviews() {
-        setupSearchBarSize()
-    }
+//    override func viewDidLayoutSubviews() {
+//        setupSearchBarSize()
+//    }
     
     // MARK: Segmented Control Function
     
@@ -110,11 +111,11 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func setupSearchBarSize(){
 //         self.searchController.searchBar.frame.size.width = self.view.frame.size.width
-        let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
-        
-        if let field = searchField {
-            self.searchController.searchBar.setConstraints(field: field as! UISearchTextField, searchView: searchView)
-        }
+//        let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
+//
+//        if let field = searchField {
+//            self.searchController.searchBar.setConstraints(field: field as! UISearchTextField, searchView: searchView)
+//        }
     }
 }
 
@@ -161,16 +162,19 @@ extension ViewController: UISearchControllerDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AccountCell.self, forCellReuseIdentifier: "AccountCell")
-//        searchController.searchResultsUpdater = self
-//        searchController.searchBar.delegate = self
-//        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
-                searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.autoresizingMask = .flexibleRightMargin
-                searchController.searchBar.delegate = self
-                searchController.delegate = self
-                definesPresentationContext = true
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+//        searchController.
+//        searchController.searchBar.showsCancelButton = true
+        
+//        searchController.hidesNavigationBarDuringPresentation = false
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+//        searchController.searchBar.autoresizingMask = .flexibleRightMargin
+//                searchController.searchBar.delegate = self
+//                searchController.delegate = self
+//                definesPresentationContext = true
         searchView.addSubview(searchController.searchBar)
         loadData()
     }
@@ -181,11 +185,25 @@ extension ViewController: UISearchControllerDelegate {
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: CGFloat(1/255.0), green: CGFloat(132/255.0), blue: CGFloat(212/255.0), alpha: CGFloat(1.0))], for: .normal)
         
+//        searchController.searchBar.snp.makeConstraints { make in
+//            make.top.equalToSuperview()
+//            make.bottom.equalToSuperview()
+//            make.left.equalToSuperview()
+//            make.right.equalToSuperview()
+//        }
         
-        let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
-        
-        if let field = searchField {
-            self.searchController.searchBar.setConstraints(field: field as! UISearchTextField, searchView: searchView)
+       searchController.hidesNavigationBarDuringPresentation = false
+//        searchController.searchBar.translatesAutoresizingMaskIntoConstraints = true
+        searchController.searchBar.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo(searchView.bounds.width)
+            make.centerX.equalToSuperview()
         }
+//
+//        let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
+//
+//        if let field = searchField {
+//            self.searchController.searchBar.setConstraints(field: field as! UISearchTextField, searchView: searchView)
+//        }
     }
 }
