@@ -16,6 +16,7 @@
 		<string>OpenSans-Regular</string>
 		<string>OpenSans-SemiBold</string>
 		<string>OpenSans-SemiBoldItalic</string>
+		<string>Inter-Bold</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

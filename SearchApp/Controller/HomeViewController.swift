@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
         tableView.register(AccountCell.self, forCellReuseIdentifier: "AccountCell")
         viewModel.fetchData(tableView: tableView)
         setupUI()
+        print(AppDelegate.wantedTableViewHeight)
+        print(AppDelegate.cellHeight)
     }
     
     func setupUI() {
@@ -82,9 +84,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let secondVC = SecondViewController()
-        secondVC.modalPresentationStyle = .overCurrentContext
+        secondVC.modalPresentationStyle = .custom
+        secondVC.transitioningDelegate = self
         present(secondVC, animated: true)
     }
 }
 
+extension HomeViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        PresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
 

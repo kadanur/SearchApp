@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA24843A282B3D5800BC57E9 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA248439282B3D5800BC57E9 /* PresentationController.swift */; };
 		BA295263282895FA0040629D /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA295262282895FA0040629D /* CustomSearchController.swift */; };
 		BA295265282896010040629D /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA295264282896010040629D /* CustomSearchBar.swift */; };
 		BA29526D2828A8E80040629D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BA29526C2828A8E80040629D /* SnapKit */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA248439282B3D5800BC57E9 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		BA295262282895FA0040629D /* CustomSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		BA295264282896010040629D /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		BA5BEFEF282558C3001DC8A7 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				BA873DE0281BF737003E560C /* HomeViewController.swift */,
 				BAAF55E028291D2400B90D8E /* HomeViewModel.swift */,
 				BADC38DD2829392F00563EF1 /* SecondViewController.swift */,
+				BA248439282B3D5800BC57E9 /* PresentationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				BAAF55DF28291C3800B90D8E /* UIColor+Extension.swift in Sources */,
 				BA873DE1281BF737003E560C /* HomeViewController.swift in Sources */,
 				BA873DDD281BF737003E560C /* AppDelegate.swift in Sources */,
+				BA24843A282B3D5800BC57E9 /* PresentationController.swift in Sources */,
 				BADC38DE2829392F00563EF1 /* SecondViewController.swift in Sources */,
 				BA873DF9281C1FDA003E560C /* NetworkService.swift in Sources */,
 				BAAF55E128291D2400B90D8E /* HomeViewModel.swift in Sources */,

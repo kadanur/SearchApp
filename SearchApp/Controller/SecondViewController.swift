@@ -10,13 +10,13 @@ import UIKit
 import SnapKit
 
 class SecondViewController: UIViewController {
+    
+
  
     private let tableView = UITableView()
-    private let topView = UIView()
-//    private let menuArray = ["YENİ TRANSFER", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
-    private let menuArray = ["YENİ TRANSFER", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
-    private let cellHeight = 52
-    private var cellCount = 0
+    static let menuArray = ["YENİ TRANSFER", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
+//    static let menuArray = ["YENİ TRANSFER", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,42 +35,33 @@ class SecondViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        let tapDismiss = UITapGestureRecognizer(target: self, action: #selector(dismissSecondVC))
-        self.topView.isUserInteractionEnabled = true
-        self.topView.addGestureRecognizer(tapDismiss)
+//        let tapDismiss = UITapGestureRecognizer(target: self, action: #selector(dismissSecondVC))
+     
     }
     
     func designSetup() {
-        cellCount = menuArray.count
-        let wantedHeightMultiplier = (Int(self.view.bounds.height) / 2)
-        let modForWantedTableViewHeight = (wantedHeightMultiplier / 2) % cellHeight
-        var wantedTableViewHeight = wantedHeightMultiplier - modForWantedTableViewHeight
-        let listedCells = wantedTableViewHeight / cellHeight
+      
         
-        if menuArray.count <= listedCells {
+        if SecondViewController.menuArray.count <= AppDelegate.listedCells {
             self.tableView.isScrollEnabled = false
-            wantedTableViewHeight = menuArray.count * cellHeight
+            AppDelegate.wantedTableViewHeight = SecondViewController.menuArray.count * AppDelegate.cellHeight
         } else {
             self.tableView.isScrollEnabled = true
-            wantedTableViewHeight = listedCells * cellHeight
+            AppDelegate.wantedTableViewHeight = AppDelegate.listedCells * AppDelegate.cellHeight
         }
         
-        self.view.addSubview(topView)
+        
         self.view.addSubview(tableView)
         view.layer.opacity = 1
-        topView.backgroundColor = .black
-        topView.layer.opacity = 0.5
+      
         
         tableView.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.left.right.equalToSuperview()
-            make.height.equalTo(wantedTableViewHeight)
+            make.height.equalTo(AppDelegate.wantedTableViewHeight)
         }
         
-        topView.snp.makeConstraints { make in
-            make.top.right.left.equalToSuperview()
-            make.bottom.equalTo(tableView.snp.top)
-        }
+      
     }
     
     @objc func dismissSecondVC() {
@@ -80,12 +71,12 @@ class SecondViewController: UIViewController {
 
 extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellCount
+        return SecondViewController.menuArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuCell.MenuCellIdentifier.identifier.rawValue) as! MenuCell
-        cell.cellTitleLabel.text = menuArray[indexPath.row]
+        cell.cellTitleLabel.text = SecondViewController.menuArray[indexPath.row]
         cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
@@ -101,7 +92,7 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(cellHeight)
+        return CGFloat(AppDelegate.cellHeight)
     }
 }
 

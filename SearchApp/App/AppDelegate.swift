@@ -10,10 +10,14 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    static let wantedHeightMultiplier = (Int(UIScreen.main.bounds.height) / 2)
+    static let modForWantedTableViewHeight = (AppDelegate.wantedHeightMultiplier) % AppDelegate.cellHeight
+    static var wantedTableViewHeight = AppDelegate.wantedHeightMultiplier - AppDelegate.modForWantedTableViewHeight
+//    static var wantedTableViewHeight = SecondViewController.menuArray.count * AppDelegate.cellHeight
+    static var cellHeight = 52
+    static var listedCells = AppDelegate.wantedTableViewHeight / AppDelegate.cellHeight
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         return true
     }
 
