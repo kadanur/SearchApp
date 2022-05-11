@@ -25,8 +25,6 @@ class HomeViewController: UIViewController {
         tableView.register(AccountCell.self, forCellReuseIdentifier: "AccountCell")
         viewModel.fetchData(tableView: tableView)
         setupUI()
-        print(AppDelegate.wantedTableViewHeight)
-        print(AppDelegate.cellHeight)
     }
     
     func setupUI() {
@@ -34,6 +32,8 @@ class HomeViewController: UIViewController {
         customSearchController.tableViewManager(tableView)
         if #available(iOS 13.0, *) {
             segmentedControl.selectedSegmentTintColor = UIColor(hexRGBString: "#0184d4")
+        } else {
+            segmentedControl.tintColor = UIColor(hexRGBString: "#0184d4")
         }
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(hexRGBString: "#0184d4")], for: .normal)

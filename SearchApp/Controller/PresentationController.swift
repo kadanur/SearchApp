@@ -10,6 +10,13 @@ import UIKit
 
 class PresentationController: UIPresentationController {
     
+    static let wantedHeightMultiplier = (Double(UIScreen.main.bounds.height) * 0.8)
+    static let modForWantedTableViewHeight = Int((PresentationController.wantedHeightMultiplier)) % PresentationController.cellHeight
+    static var wantedTableViewHeight = Int(PresentationController.wantedHeightMultiplier) - PresentationController.modForWantedTableViewHeight
+//    static var wantedTableViewHeight = SecondViewController.menuArray.count * AppDelegate.cellHeight
+    static var cellHeight = 52
+    static var listedCells = PresentationController.wantedTableViewHeight / PresentationController.cellHeight
+    
     let blurEffectView: UIVisualEffectView!
     var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
     
@@ -25,8 +32,8 @@ class PresentationController: UIPresentationController {
     
     override var frameOfPresentedViewInContainerView: CGRect {
         
-        CGRect(origin: CGPoint(x: 0, y: Int(self.containerView!.frame.height) - AppDelegate.wantedTableViewHeight),
-               size: CGSize(width: self.containerView!.frame.width, height: CGFloat(AppDelegate.wantedTableViewHeight)))
+        CGRect(origin: CGPoint(x: 0, y: Int(self.containerView!.frame.height) - PresentationController.wantedTableViewHeight),
+               size: CGSize(width: self.containerView!.frame.width, height: CGFloat(PresentationController.wantedTableViewHeight)))
     }
     
     override func presentationTransitionWillBegin() {

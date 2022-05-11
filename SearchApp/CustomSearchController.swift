@@ -72,7 +72,11 @@ class CustomSearchController: UIViewController {
         guard let tableView = tableViewToManage else { return }
         var keyboardHeight = sender.getKeyboardAnimationData().2
         if let window = UIApplication.shared.keyWindow {
-            keyboardHeight -= window.safeAreaInsets.bottom
+            if #available(iOS 11.0, *) {
+                keyboardHeight -= window.safeAreaInsets.bottom
+            } else {
+                // Fallback on earlier versions
+            }
         }
         tableView.contentInset.bottom = keyboardHeight
         tableView.scrollIndicatorInsets.bottom = keyboardHeight

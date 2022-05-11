@@ -10,15 +10,9 @@ import Foundation
 import UIKit
 import SnapKit
 
-protocol DismissButtonDelegate {
-    func dismissVC()
-}
-
 class MenuCell: UITableViewCell {
     
     let cellTitleLabel: UILabel = UILabel()
-    let dismissButton = UIImageView()
-    var delegate: DismissButtonDelegate?
     
     enum MenuCellIdentifier: String {
         case identifier = "MenuCell"
@@ -34,19 +28,8 @@ class MenuCell: UITableViewCell {
     }
     
     func cellSetup() {
-        dismissButton.image = UIImage(named: "xButton")
         addSubview(cellTitleLabel)
-        contentView.addSubview(dismissButton)
         makeCellTitleLabel()
-        makeDismissButton()
-        dismissButton.isUserInteractionEnabled = true
-        let dismissGesture = UITapGestureRecognizer(target: self, action: #selector(dismissButtonAction))
-        dismissButton.addGestureRecognizer(dismissGesture)
-    }
-    
-    @objc func dismissButtonAction() {
-        print("Dismiss Button Clicked")
-        delegate?.dismissVC()
     }
 }
 
@@ -58,13 +41,4 @@ extension MenuCell {
             make.centerY.equalToSuperview()
         }
     }
-    
-    func makeDismissButton() {
-        dismissButton.snp.makeConstraints { make in
-            make.height.width.equalTo(16)
-            make.right.equalToSuperview().offset(-16)
-            make.centerY.equalToSuperview()
-        }
-    }
-    
 }

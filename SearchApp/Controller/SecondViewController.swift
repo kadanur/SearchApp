@@ -11,11 +11,12 @@ import SnapKit
 
 class SecondViewController: UIViewController {
     
-
- 
+    private let titleView = UIView()
+    private let titleLabel = UILabel()
+    private let dismissButton = UIImageView()
     private let tableView = UITableView()
-    static let menuArray = ["YENİ TRANSFER", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
-//    static let menuArray = ["YENİ TRANSFER", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
+    static let menuArray = ["Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
+    //    static let menuArray = ["YENİ TRANSFER", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
     
     
     override func viewDidLoad() {
@@ -24,10 +25,10 @@ class SecondViewController: UIViewController {
         designSetup()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.clipsToBounds = true
-        tableView.layer.cornerRadius = 20 // Set As you want
-        tableView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+    
+    @objc func dismissButtonAction() {
+        print("Dismiss Button Clicked")
+        self.dismiss(animated: true)
     }
     
     func setup() {
@@ -35,33 +36,54 @@ class SecondViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-//        let tapDismiss = UITapGestureRecognizer(target: self, action: #selector(dismissSecondVC))
-     
+        dismissButton.isUserInteractionEnabled = true
+        let dismissGesture = UITapGestureRecognizer(target: self, action: #selector(dismissButtonAction))
+        dismissButton.addGestureRecognizer(dismissGesture)
     }
     
     func designSetup() {
-      
         
-        if SecondViewController.menuArray.count <= AppDelegate.listedCells {
+        
+        if SecondViewController.menuArray.count <= PresentationController.listedCells {
             self.tableView.isScrollEnabled = false
-            AppDelegate.wantedTableViewHeight = SecondViewController.menuArray.count * AppDelegate.cellHeight
+            PresentationController.wantedTableViewHeight = SecondViewController.menuArray.count * PresentationController.cellHeight
         } else {
             self.tableView.isScrollEnabled = true
-            AppDelegate.wantedTableViewHeight = AppDelegate.listedCells * AppDelegate.cellHeight
+            PresentationController.wantedTableViewHeight = PresentationController.listedCells * PresentationController.cellHeight
         }
         
+        //   tableView.tableHeaderView = titleView
+        view.addSubview(titleView)
+        titleView.addSubview(titleLabel)
+        titleView.addSubview(dismissButton)
+        titleView.backgroundColor = .white
+        titleView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(PresentationController.cellHeight)
+        }
+        
+        titleLabel.text = "YENİ TRANSFER"
+        titleLabel.font = UIFont(name: "OpenSans-SemiBold", size: 15)
+        titleLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(16)
+            make.centerY.equalToSuperview()
+        }
+        
+        dismissButton.image = UIImage(named: "xButton")
+        dismissButton.snp.makeConstraints { make in
+            make.height.width.equalTo(16)
+            make.right.equalToSuperview().offset(-16)
+            make.centerY.equalToSuperview()
+        }
         
         self.view.addSubview(tableView)
         view.layer.opacity = 1
-      
         
         tableView.snp.makeConstraints { make in
+            make.top.equalTo(titleView.snp.bottom)
             make.bottom.equalToSuperview()
             make.left.right.equalToSuperview()
-            make.height.equalTo(AppDelegate.wantedTableViewHeight)
         }
-        
-      
     }
     
     @objc func dismissSecondVC() {
@@ -80,24 +102,12 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
         cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
-        cell.delegate = self
-        if indexPath.row == 0  {
-            cell.cellTitleLabel.font = UIFont(name: "OpenSans-SemiBold", size: 15)
-            cell.dismissButton.isHidden = false
-        } else {
-            cell.cellTitleLabel.font = UIFont(name: "OpenSans-Regular", size: 15)
-            cell.dismissButton.isHidden = true
-        }
+        cell.cellTitleLabel.font = UIFont(name: "OpenSans-Regular", size: 15)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(AppDelegate.cellHeight)
+        return CGFloat(PresentationController.cellHeight)
     }
 }
 
-extension SecondViewController: DismissButtonDelegate {
-    func dismissVC() {
-        dismiss(animated: true)
-    }
-}
