@@ -13,9 +13,25 @@ class PresentationController: UIPresentationController {
     static let wantedHeightMultiplier = (Double(UIScreen.main.bounds.height) * 0.8)
     static let modForWantedTableViewHeight = Int((PresentationController.wantedHeightMultiplier)) % PresentationController.cellHeight
     static var wantedTableViewHeight = Int(PresentationController.wantedHeightMultiplier) - PresentationController.modForWantedTableViewHeight
-//    static var wantedTableViewHeight = SecondViewController.menuArray.count * AppDelegate.cellHeight
     static var cellHeight = 52
     static var listedCells = PresentationController.wantedTableViewHeight / PresentationController.cellHeight
+    
+    func valueOfTableViewHeight() -> Int {
+            if SecondViewController.menuArray.count <= PresentationController.listedCells {
+                PresentationController.wantedTableViewHeight = SecondViewController.menuArray.count * (PresentationController.cellHeight) + PresentationController.cellHeight
+            } else {
+                PresentationController.wantedTableViewHeight = PresentationController.listedCells * PresentationController.cellHeight
+            }
+        
+        if let window = UIApplication.shared.keyWindow {
+            if #available(iOS 11.0, *) {
+                PresentationController.wantedTableViewHeight = PresentationController.wantedTableViewHeight + Int(window.safeAreaInsets.bottom)
+            } else {
+                PresentationController.wantedTableViewHeight = PresentationController.wantedTableViewHeight * PresentationController.cellHeight
+            }
+        }
+        return PresentationController.wantedTableViewHeight
+    }
     
     let blurEffectView: UIVisualEffectView!
     var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
@@ -32,8 +48,8 @@ class PresentationController: UIPresentationController {
     
     override var frameOfPresentedViewInContainerView: CGRect {
         
-        CGRect(origin: CGPoint(x: 0, y: Int(self.containerView!.frame.height) - PresentationController.wantedTableViewHeight),
-               size: CGSize(width: self.containerView!.frame.width, height: CGFloat(PresentationController.wantedTableViewHeight)))
+        CGRect(origin: CGPoint(x: 0, y: Int(self.containerView!.frame.height) - valueOfTableViewHeight()),
+               size: CGSize(width: self.containerView!.frame.width, height: CGFloat(valueOfTableViewHeight())))
     }
     
     override func presentationTransitionWillBegin() {

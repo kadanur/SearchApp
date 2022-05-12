@@ -40,6 +40,7 @@
 		BADC38DE2829392F00563EF1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC38DD2829392F00563EF1 /* SecondViewController.swift */; };
 		BADC38E228294FC000563EF1 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC38E128294FC000563EF1 /* MenuCell.swift */; };
 		BAF2EFCC281C24C80027AC6A /* data2.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF2EFCB281C24C80027AC6A /* data2.json */; };
+		BAFC8F26282DBBF6002E82A4 /* FontSwizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC8F25282DBBF6002E82A4 /* FontSwizzling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		BADC38DD2829392F00563EF1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		BADC38E128294FC000563EF1 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		BAF2EFCB281C24C80027AC6A /* data2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data2.json; sourceTree = "<group>"; };
+		BAFC8F25282DBBF6002E82A4 /* FontSwizzling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSwizzling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				BAF2EFCB281C24C80027AC6A /* data2.json */,
 				BA295262282895FA0040629D /* CustomSearchController.swift */,
 				BA295264282896010040629D /* CustomSearchBar.swift */,
+				BAFC8F25282DBBF6002E82A4 /* FontSwizzling.swift */,
 			);
 			path = SearchApp;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				BAAF55DF28291C3800B90D8E /* UIColor+Extension.swift in Sources */,
 				BA873DE1281BF737003E560C /* HomeViewController.swift in Sources */,
 				BA873DDD281BF737003E560C /* AppDelegate.swift in Sources */,
+				BAFC8F26282DBBF6002E82A4 /* FontSwizzling.swift in Sources */,
 				BA24843A282B3D5800BC57E9 /* PresentationController.swift in Sources */,
 				BADC38DE2829392F00563EF1 /* SecondViewController.swift in Sources */,
 				BA873DF9281C1FDA003E560C /* NetworkService.swift in Sources */,

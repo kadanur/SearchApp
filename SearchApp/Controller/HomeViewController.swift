@@ -35,14 +35,20 @@ class HomeViewController: UIViewController {
         } else {
             segmentedControl.tintColor = UIColor(hexRGBString: "#0184d4")
         }
+        
+//        let font = UIFont.init(name: "OpenSans-Regular", size: 13)
+        
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(hexRGBString: "#0184d4")], for: .normal)
+//        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+//        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .selected)
+       // segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
     }
+    
     @IBAction func segmentControlChange(_ sender: UISegmentedControl) {
         viewModel.tableType = TableType(rawValue: sender.selectedSegmentIndex) ?? .table1
         viewModel.fetchData(tableView: tableView)
     }
-    
 }
 
 extension HomeViewController: CustomSearchControllerDelegate{
@@ -59,7 +65,6 @@ extension HomeViewController: CustomSearchControllerDelegate{
     }
 }
  
-  
     // MARK: Table View Options
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{

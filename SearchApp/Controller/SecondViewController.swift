@@ -11,13 +11,13 @@ import SnapKit
 
 class SecondViewController: UIViewController {
     
+    private let lineView = UIView()
     private let titleView = UIView()
     private let titleLabel = UILabel()
     private let dismissButton = UIImageView()
     private let tableView = UITableView()
-    static let menuArray = ["Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
-    //    static let menuArray = ["YENİ TRANSFER", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
-    
+//        static let menuArray = ["Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer", "Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
+    static let menuArray = ["Manuel Transfer", "Scan & Pay Transfer", "Own Transfer"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,7 @@ class SecondViewController: UIViewController {
         designSetup()
     }
     
-    
     @objc func dismissButtonAction() {
-        print("Dismiss Button Clicked")
         self.dismiss(animated: true)
     }
     
@@ -42,21 +40,21 @@ class SecondViewController: UIViewController {
     }
     
     func designSetup() {
+        view.backgroundColor = .white
+        view.addSubview(titleView)
+        view.addSubview(tableView)
         
+        titleView.addSubview(titleLabel)
+        titleView.addSubview(dismissButton)
+        titleView.addSubview(lineView)
+        titleView.backgroundColor = .white
         
         if SecondViewController.menuArray.count <= PresentationController.listedCells {
             self.tableView.isScrollEnabled = false
-            PresentationController.wantedTableViewHeight = SecondViewController.menuArray.count * PresentationController.cellHeight
         } else {
             self.tableView.isScrollEnabled = true
-            PresentationController.wantedTableViewHeight = PresentationController.listedCells * PresentationController.cellHeight
         }
         
-        //   tableView.tableHeaderView = titleView
-        view.addSubview(titleView)
-        titleView.addSubview(titleLabel)
-        titleView.addSubview(dismissButton)
-        titleView.backgroundColor = .white
         titleView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             make.height.equalTo(PresentationController.cellHeight)
@@ -76,12 +74,21 @@ class SecondViewController: UIViewController {
             make.centerY.equalToSuperview()
         }
         
-        self.view.addSubview(tableView)
-        view.layer.opacity = 1
+        lineView.layer.borderWidth = 1.0
+        lineView.layer.borderColor = UIColor(red: CGFloat(224/255.0), green: CGFloat(224/255.0), blue: CGFloat(224/255.0), alpha: CGFloat(1.0)).cgColor
+        
+        lineView.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview()
+            make.height.equalTo(1)
+        }
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleView.snp.bottom)
-            make.bottom.equalToSuperview()
+            if #available(iOS 11.0, *) {
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            } else {
+                make.bottom.equalToSuperview()
+            }
             make.left.right.equalToSuperview()
         }
     }
